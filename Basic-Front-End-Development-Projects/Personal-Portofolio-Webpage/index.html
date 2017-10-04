@@ -1,12 +1,175 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Portofolio</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel='stylesheet' href='styles/style.css'>
   </head>
-  <body>
+  <body data-spy="scroll" data-target="#mySpyNav" data-offset="50">
+    <div class='my-img-container'>
+        <!-- navbar -->
+        <header>
+          <nav class="navbar navbar-default navbar-fixed-top my-navbar" id='mySpyNav'>
+            <div class="container-fluid">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a href="#"><img class="navbar-brand my-brand" src="https://magazine.fortcollinsmag.com/wp-content/themes/VERTIQUL-Child/images/icon-home-white.png" alt='logo'></a>
+              </div>
+
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a class='my-a' href="#section-about">about</a></li>
+                  <li><a class='my-a' href="#section-work">portfolio</a></li>
+                  <li><a class='my-a' href="#section-contact">contact</a></li>
+                </ul>
+              </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+          </nav>
+        </header>
+      <!-- content -->
+      <div class='container-fluid'>
+        <div class='my-text-container'>
+          <h1 class='text-center'>Radu Matees</h1>
+          <h3 class='text-center'>- Aspiring Web Developer -</h3>
+        </div>
+      </div>
+    </div> <!-- my-img-container -->
+
+    <div class='container-fluid my-about-background' id='section-about'>
+      <div class='row'>
+        <div class='col-md-2 col-md-offset-5 col-sm-8 col-sm-offset-2 text-center'>
+            <h2>About Me</h2>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-xs-8 col-xs-offset-2 col-md-3 col-md-offset-1'>
+          <img class='img-responsive img-circle my-about-img' src='images/me-photo.jpg' alt="me_photo">
+        </div>
+        <div class='col-xs-10 col-xs-offset-1 col-md-5 col-md-offset-2 my-about-description'>
+          <h4>Hi, my name is Radu Matees and I am currently learning all there is to know about web development.
+          I am participating in FreeCodeCamp's FrontEnd Development program and wish to acquire all
+          necessary skills to be a professional web developer myself.</h4>
+          <h4>On my free time I like to go out and have a beer, go hiking, swimming or skiing (depending
+          on the weather, of course). I also like video games, movies and listening to music. Oh, and I have an architecture
+          diploma, so if you don't want to build a web app but maybe a house, I'm still your guy.</h4>
+        </div>
+      </div>
+    </div> <!-- about -->
+
+    <div class='container-fluid my-work-background' id='section-work'>
+      <div class='row'>
+        <div class='col-sm-8 col-sm-offset-2 col-md-2 col-md-offset-5 text-center'>
+            <h2>My Work</h2>
+        </div>
+      </div>
+      <div class='row'>
+
+        <div class='col-xs-12 col-sm-6 col-md-4 cold-lg-3'>
+          <div class='my-work-img-container' id='work1'>
+            <div class='my-work-img-container-descr'>
+              <h3 class='text-center'>Tribute Page - FreeCodeCamp</h3>
+              <p class='text-center'>A basic front end development project created with HTML and Bootstrap.
+              It is FreeCodeCamp's first project within the FrontEndDevelopment Certification,
+            and it represents a tribute page to a great person.</p>
+              <div class='my-buttons'>
+                <a href='https://codepen.io/RaduMatees/pen/aLJQoP' target="_blank">
+                  <button type='button' class='btn my-work-btn'>Demo  <i class="fa fa-codepen my-icon"></i></button>
+                </a>
+                <a href='https://github.com/RaduMatees/FreeCodeCamp/tree/master/Basic-Front-End-Development-Projects/Tribute-Page' target="_blank">
+                  <button type='button' class='btn my-work-btn'>Code  <i class="fa fa-github my-icon"></i></button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class='col-xs-12 col-sm-6 col-md-4 cold-lg-3'>
+          <div class='my-work-img-container' id='work2'>
+            <div class='my-work-img-container-descr'>
+              <h3 class='text-center'>Google HomePage</h3>
+              <p class='text-center'>A basic front end development project created with HTML and CSS.
+              The purpose of the project is to recreate vissualy the Google Home Page.</p>
+              <div class='my-buttons'>
+                <a href='https://codepen.io/RaduMatees/pen/gGGdqW' target="_blank">
+                  <button type='button' class='btn my-work-btn'>Demo  <i class="fa fa-codepen my-icon"></i></button>
+                </a>
+                <a href='https://github.com/RaduMatees/google-homepage' target="_blank">
+                  <button type='button' class='btn my-work-btn'>Code  <i class="fa fa-github my-icon"></i></button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class='col-xs-12 col-sm-6 col-md-4 cold-lg-3'>
+          <div class='my-work-img-container' id='work3'>
+            <div class='my-work-img-container-descr'>
+              <h3 class='text-center'>Sketchpad</h3>
+              <p class='text-center'>A front end project created with HTML and especially JQuery.
+               The purpose of the project is to create an interactive sketchpad which takes user input.</p>
+              <div class='my-buttons'>
+                <a href='https://codepen.io/RaduMatees/pen/RLLexj' target="_blank">
+                  <button type='button' class='btn my-work-btn'>Demo  <i class="fa fa-codepen my-icon"></i></button>
+                </a>
+                <a href='https://github.com/RaduMatees/Sketchpad' target="_blank">
+                  <button type='button' class='btn my-work-btn'>Code  <i class="fa fa-github my-icon"></i></button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='col-xs-12 col-sm-6 col-md-4 cold-lg-3'>
+          <div class='my-work-img-container' id='work4'>
+
+          </div>
+        </div>
+        <div class='col-xs-12 col-sm-6 col-md-4 cold-lg-3'>
+          <div class='my-work-img-container' id='work5'>
+
+          </div>
+        </div>
+        <div class='col-xs-12 col-sm-6 col-md-4 cold-lg-3'>
+          <div class='my-work-img-container' id='work6'>
+
+          </div>
+        </div>
+        </div>
+    </div> <!-- work -->
+
+    <div class='container-fluid my-contact-background' id='section-contact'>
+      <div class='row'>
+        <div class='col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 text-center'>
+            <h2>Contact Me</h2>
+        </div>
+      </div>
+      <div class='row my-contact-icons-row text-center'>
+        <div class='col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 col-lg-4 col-lg-offset-4'>
+          <a href='https://github.com/RaduMatees' target="_blank" alt='github-icon'><i class="fa fa-github my-contact-icon" id="cont-git"></i></a>
+          <a href='https://www.freecodecamp.org/radumatees' target="_blank" alt='free-code-camp-icon'><i class="fa fa-free-code-camp my-contact-icon" id="cont-free"></i></a>
+          <a href='#' alt='linkedin-icon'><i class="fa fa-linkedin my-contact-icon" id="cont-link"></i></a>
+          <a href='mailto:radumatees@gmail.com' alt='gmail-icon'><i class="fa fa-envelope my-contact-icon" id="cont-env"></i></a>
+        </div>
+      </div>
+      <div class='row my-footer text-center'>
+          <h5>Written and coded by Radu Matees</h5>
+      </div>
+    </div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src='scripts/main.js'></script>
   </body>

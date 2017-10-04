@@ -1,0 +1,171 @@
+html {
+  height: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+.navbar {
+  border: 0px;
+}
+.my-navbar {
+  padding: 10px;
+  background-color: rgba(30, 30, 30, 0);
+  transition: background-color 0.7s ease;
+}
+#bs-example-navbar-collapse-1 a.my-a {
+  font-size: 1.15em;
+  font-family: 'Work Sans', sans-serif;
+  color: #aaaaaa;
+}
+#bs-example-navbar-collapse-1 a.my-a:hover {
+  color: white;
+}
+.my-img-container {
+  background-image: url("http://lancedesign.org/en/wp-content/uploads/2016/05/Website-Design-Background-1.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+}
+
+.my-brand {
+  padding: 10 10 10 20px;
+  filter: brightness(80%);
+}
+.my-brand:hover {
+  filter: brightness(100%);
+}
+.my-text-container {
+  display:block;
+  color: #d1d1d1;
+  font-family:  'Work Sans', sans-serif;
+}
+.my-text-container h1 {
+  font-size: 3em;
+  font-family:  'Work Sans', sans-serif;
+  font-weight: 900;
+}
+
+/* ABOUT */
+
+.my-about-background {
+  background-color: #e2e2e2;
+}
+.my-about-background h2{
+  margin-top: 80px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid grey;
+}
+.my-about-img {
+  margin-bottom: 20px;
+}
+.my-about-description h4 {
+  margin-top: 20px;
+  line-height: 1.4em;
+}
+
+/* WORK */
+
+.my-work-background {
+  background-color: #c4c4c4;
+  padding-bottom: 20px;
+}
+.my-work-background h2 {
+  margin-top: 80px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid grey;
+}
+.my-work-img-container {
+  height: 300px;
+  background-position: top;
+  background-size: cover;
+  margin-top: 30px;
+  position: relative;
+  transition: transform 0.2s;
+}
+#work1 {
+  background-image: url("../images/work1.png");
+}
+#work2 {
+  background-image: url("../images/work2.png");
+}
+#work3 {
+  background-image: url("../images/work3.png");
+}
+#work4 {
+  background-image: url("../images/comingsoon.png");
+  background-size: contain;
+}
+#work5 {
+  background-image: url("../images/comingsoon.png");
+  background-size: contain;
+}
+#work6 {
+  background-image: url("../images/comingsoon.png");
+  background-size: contain;
+}
+.my-work-img-container-descr {
+  position: absolute;
+  width: 90%;
+  left:5%;
+  top:15%;
+  color: #ededed;
+  display: none;
+}
+.my-work-btn {
+  background: rgba(255, 255, 255, 0);
+  border:1px solid black;
+  margin: 5px;
+}
+.my-buttons {
+  text-align: center;
+}
+.my-work-btn {
+  background-color: #ededed;
+  color: #24292E;
+}
+
+/* CONTACT */
+
+.my-contact-background {
+  background-color: #e2e2e2;
+}
+.my-contact-background h2{
+  margin-top: 50px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid grey;
+}
+.my-contact-icon {
+  color: #727272;
+  font-size: 50px;
+}
+.my-contact-icons-row {
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+.my-contact-icons-row i {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+#cont-git:hover {
+  color: #24292E;
+}
+#cont-free:hover {
+  color: #006400;
+}
+#cont-link:hover {
+  color: #0077B5;
+}
+#cont-env:hover {
+  color: #D14130;
+}
+.my-footer {
+  background-color: #C4C4C4;
+}
+.my-footer h5 {
+  padding: 10px;
+}
