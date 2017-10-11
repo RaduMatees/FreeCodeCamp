@@ -12,6 +12,7 @@ body {
   background-color: white;
   top: 12em;
   border-radius: 5px;
+  display: none;
 }
 .my-area h2 {
   padding: 30 30 10 30;
