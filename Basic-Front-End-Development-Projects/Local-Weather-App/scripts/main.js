@@ -31,13 +31,13 @@ $(document).ready(function() {
   function changeBackground(weatherLike) {
     if (weatherLike == 'Clouds') {
       $('.my-img-container').addClass('img-clouds')
-    } else if (weather == 'Rain') {
+    } else if (weatherLike == 'Rain') {
       $('.my-img-container').addClass('img-rainy')
-    } else if (weather == 'Clear') {
+    } else if (weatherLike == 'Clear') {
       $('.my-img-container').addClass('img-clear')
-    } else if (weather == 'Mist') {
+    } else if (weatherLike == 'Mist') {
       $('.my-img.container').addClass('img-mist')
-    } else if (weather == 'haze') {
+    } else if (weatherLike == 'haze') {
       $('.my-img.container').addClass('img-haze')
     }
   }
