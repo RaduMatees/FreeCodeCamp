@@ -1,1 +1,51 @@
-
+body {
+  height: 100%;
+  background-color: #40d19c;
+}
+.container {
+  padding-bottom: 2em;
+}
+.my-div {
+  margin-top: 17em;
+}
+.my-div h2{
+  color: white;
+  padding-bottom: 10px;
+}
+.my-first {
+  padding: 10 20 10 20;
+  border-radius: 20px;
+  border: 0px solid white;
+  width: 100%;
+  outline: none;
+}
+#my-random {
+  margin-top: 10px;
+  display: block;
+}
+.my-panel {
+  background-color: #E6E6E7;
+  height: 8em;
+  margin-top: 2em;
+  display: none;
+  list-style-type: none;
+}
+.my-panel:hover {
+  transition: 0.2s ease;
+  transform: scale(1.03, 1.03);
+  background-color: #c4c4c4;
+}
+#my-output {
+  margin-right: 30px;
+}
+.my-panel h3 {
+  padding-top: 10;
+  margin: 10 0 10 10;
+}
+.my-panel p {
+  margin: 0 10 10 10;
+}
+#my-output a {
+  text-decoration: none;
+  color: black;
+}
