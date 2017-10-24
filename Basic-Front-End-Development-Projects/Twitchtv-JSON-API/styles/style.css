@@ -1,0 +1,47 @@
+.my-background {
+  background-color: #F8A096;
+}
+.my-status-buttons {
+  background-color: #F57566;
+  color: #f2f2f2;
+  font-size: 1.2em;
+  border-left: 1px solid #F8A096;
+  padding: 10px;
+}
+.my-search-input-box {
+  border-left: 1px solid #F8A096;
+  background-color: #f2f2f2;
+}
+#my-search-input {
+  padding: 10 20 10 20;
+  border-radius: 20px;
+  border: 0px solid white;
+  width: 100%;
+  outline: none;
+  margin: 20 0 20 0;
+}
+.my-list {
+  padding: 10;
+  text-align: left;
+}
+.my-list li {
+  list-style-type: none;
+}
+.my-round-avatars {
+  display: inline-block;
+  width: 5em;
+  height: 5em;
+  border-radius: 2.5em;
+  background-color: red;
+}
+.my-list-item {
+  position: relative;
+  margin-bottom: 20px;
+}
+.my-list-names {
+  font-size: 1.2em;
+  position: absolute;
+  top: 1.5em;
+  left: 5em;
+  color: #F57566;
+}
