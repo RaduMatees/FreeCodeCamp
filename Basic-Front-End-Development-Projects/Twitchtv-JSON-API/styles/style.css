@@ -1,4 +1,4 @@
-.my-background {
+body {
   background-color: #F8A096;
 }
 .my-status-buttons {
@@ -32,9 +32,14 @@
   width: 5em;
   height: 5em;
   border-radius: 2.5em;
-  background-color: red;
+}
+.my-round-avatars img {
+  width: inherit;
+  height: inherit;
+  border-radius: 2.5em;
 }
 .my-list-item {
+
   position: relative;
   margin-bottom: 20px;
 }
