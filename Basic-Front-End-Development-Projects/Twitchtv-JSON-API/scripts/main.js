@@ -3,6 +3,8 @@ $(document).ready(function() {
   //executing code
 
   var streamers = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"]
+  var onlineStreamers = []
+  var offlineStreamers = []
   var url = ""
 
   for (i=0; i<streamers.length; i++) {
@@ -10,7 +12,31 @@ $(document).ready(function() {
   }
 
   $('#all-btn').on('click', function() {
-    ('.my-list-item').toggle()
+    $('.my-list-item').show()
+  })
+
+  $('#online-btn').on('click', function() {
+    $('.my-list-item').show()
+    $('.my-list-item').each(function() {
+      var cleanedLiText = $(this).text().replace(/\s+/g, "")
+      for (j=0; j<offlineStreamers.length; j++) {
+        if (cleanedLiText == offlineStreamers[j]) {
+          $(this).hide()
+        }
+      }
+    })
+  })
+
+  $('#offline-btn').on('click', function() {
+    $('.my-list-item').show()
+    $('.my-list-item').each(function() {
+      var cleanedLiText = $(this).text().replace(/\s+/g, "")
+      for (k=0; k<onlineStreamers.length; k++) {
+        if (cleanedLiText == onlineStreamers[k]) {
+          $(this).hide()
+        }
+      }
+    })
   })
 
   // functions
@@ -43,6 +69,7 @@ $(document).ready(function() {
       </span></li>")
       $('.my-list-item:last').wrap("<a href='https://go.twitch.tv/" + json.stream.channel.display_name + "' target=_blank></a>")
       $('.my-list-item:last').append('<i class="fa fa-check my-check" aria-hidden="true"></i>')
+      onlineStreamers.push(json.stream.channel.display_name)
     }
   }
 
@@ -61,6 +88,7 @@ $(document).ready(function() {
         </span></li>")
         $('.my-list-item:last').wrap("<a href='https://go.twitch.tv/" + json2.display_name + "' target=_blank></a>")
         $('.my-list-item:last').append('<i class="fa fa-times my-times" aria-hidden="true"></i>')
+        offlineStreamers.push(json2.display_name)
       },
       error: function(errorMessage){
         alert('Error')
