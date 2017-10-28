@@ -77,23 +77,12 @@ $(document).ready(function() {
     if (json.stream === null) {
       offlineStream(i)
     } else {
-      if ($(window).width() < 960) {
-        $('.my-list').append("<li class='my-list-item'><div class='my-round-avatars'> \
-        <img src='" + json.stream.channel.logo + "'></div><span class='my-list-names'>" + json.stream.channel.display_name + " \
-        </span><span class='my-list-info'>" + json.stream.channel.game + "</span></li>")
-        $('.my-list-item:last').wrap("<a href='https://go.twitch.tv/" + json.stream.channel.display_name + "' target=_blank></a>")
-        $('.my-list-item:last').append('<i class="fa fa-check my-check" aria-hidden="true"></i>')
-        onlineStreamers.push(json.stream.channel.display_name)
-      }
-      else {
-        $('.my-list').append("<li class='my-list-item'><div class='my-round-avatars'> \
-        <img src='" + json.stream.channel.logo + "'></div><span class='my-list-names'>" + json.stream.channel.display_name + " \
-        </span><span class='my-list-info'>" + json.stream.channel.status + "</span></li>")
-        $('.my-list-item:last').wrap("<a href='https://go.twitch.tv/" + json.stream.channel.display_name + "' target=_blank></a>")
-        $('.my-list-item:last').append('<i class="fa fa-check my-check" aria-hidden="true"></i>')
-        onlineStreamers.push(json.stream.channel.display_name)
-      }
-
+      $('.my-list').append("<li class='my-list-item'><div class='my-round-avatars'> \
+      <img src='" + json.stream.channel.logo + "'></div><span class='my-list-names'>" + json.stream.channel.display_name + " \
+      </span><span class='my-list-info'>" + truncateWord(json.stream.channel.status) + "</span></li>")
+      $('.my-list-item:last').wrap("<a href='https://go.twitch.tv/" + json.stream.channel.display_name + "' target=_blank></a>")
+      $('.my-list-item:last').append('<i class="fa fa-check my-check" aria-hidden="true"></i>')
+      onlineStreamers.push(json.stream.channel.display_name)
     }
   }
 
@@ -118,6 +107,12 @@ $(document).ready(function() {
         alert('Error')
       }
     })// ajax call end
+  }
+
+  function truncateWord(word) {
+    if (word.length > 30) {
+      return word.substr(0, 30) + "..."
+    }
   }
 
 })
