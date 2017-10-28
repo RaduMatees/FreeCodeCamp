@@ -39,6 +39,19 @@ $(document).ready(function() {
     })
   })
 
+  $('#my-search-input').keypress(function(e) {
+    $('.my-list-item').show()
+    if (e.which == 13) {
+      var userInput = $('#my-search-input').val()
+      $('.my-list-item').each(function() {
+        var liText = $(this).text().replace(/\s+/g, "")
+        if (liText.toLowerCase().indexOf(userInput.toLowerCase()) == -1){
+          $(this).hide()
+        }
+      })
+    }
+  })
+
   // functions
 
   function populatePage(i) {
