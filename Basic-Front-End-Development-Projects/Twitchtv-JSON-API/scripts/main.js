@@ -56,7 +56,7 @@ $(document).ready(function() {
 
   function populatePage(i) {
 
-    url = "https://wind-bow.gomix.me/twitch-api/streams/" + streamers[i] + "/?callback=?"
+    url = "https://wind-bow.gomix.me/twitch-api/streams/" + streamers[i]
 
     $.ajax({
       type:"GET",
