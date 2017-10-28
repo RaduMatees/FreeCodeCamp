@@ -30,7 +30,7 @@ $(document).ready(function() {
   $('#offline-btn').on('click', function() {
     $('.my-list-item').show()
     $('.my-list-item').each(function() {
-      var cleanedLiText = $(this).text().replace(/\s+/g, "")
+      var cleanedLiText = $(this).find('.my-list-names').text().replace(/\s+/g, "")
       for (k=0; k<onlineStreamers.length; k++) {
         if (cleanedLiText == onlineStreamers[k]) {
           $(this).hide()
