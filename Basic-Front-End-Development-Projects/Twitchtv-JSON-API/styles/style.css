@@ -1,19 +1,24 @@
 body {
-  background-color: #F8A096;
+  background-color: #4B367C;
 }
 .my-status-buttons {
-  background-color: #F57566;
+  background-color: #7400A7;
   color: #f2f2f2;
   font-size: 1.2em;
-  border-left: 1px solid #F8A096;
+  border-left: 1px solid #4B367C;
   padding: 10px;
   cursor: pointer;
 }
+#twitch {
+  transform: scale(0.8, 0.8);
+  display: block;
+  margin: 0 auto;
+}
 .my-status-buttons:hover {
-  background-color: #f4867a;
+  background-color: #8820bc;
 }
 .my-search-input-box {
-  border-left: 1px solid #F8A096;
+  border-left: 1px solid #4B367C;
   background-color: #f2f2f2;
 }
 #my-search-input {
