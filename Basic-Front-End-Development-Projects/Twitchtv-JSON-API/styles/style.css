@@ -57,7 +57,14 @@ body {
   position: absolute;
   top: 2em;
   left: 5em;
-  color: #F57566;
+  color: #4B367C;
+}
+.my-list-info {
+  color: #7400A7;
+  font-style: italic;
+  font-size: 0.9em;
+  position: absolute;
+  bottom: 0em;
 }
 .my-check {
   font-size: 1.5em;
