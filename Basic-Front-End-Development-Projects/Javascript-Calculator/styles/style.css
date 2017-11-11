@@ -1,0 +1,79 @@
+body {
+  background-color: #ffecc2;
+}
+.calculator {
+  padding-top: 1px;
+  margin: 50 auto;
+  background-color: #68a0d1;
+  width: 350px;
+  height: 500px;
+  border-radius: 20px;
+  position: relative;
+}
+.footer {
+  margin: 0;
+  width: 100%;
+  text-align: center;
+}
+#screen {
+  margin: 40 25 20 25;
+  width: 300px;
+  height:60px;
+  border-bottom: 1px solid #565656;
+  font-size: 40px;
+  text-align: right;
+}
+.row-group {
+  word-spacing: 6;
+  margin: 0 40 10 40;
+  width: 270px;
+  height: 60px;
+}
+.my-btn {
+  border-radius: 5px;
+  display: inline-block;
+  background-color: #f4cf3a;
+  height: 60px;
+  width: 60px;
+  position: relative;
+  box-shadow: 0px 5px 0px #b79e38;
+  transition: 0.05s ease;
+}
+.my-btn:active {
+  box-shadow: none;
+  transform: translate(0px,5px);
+}
+.my-btn:hover {
+  cursor: pointer;
+}
+#my-btn-clear{
+  width: 130px;
+  background-color: #ea7070;
+  box-shadow: 0px 5px 0px #ba5050;
+}
+#my-btn-clear:active{
+  box-shadow: none;
+}
+#my-btn-clear span{
+  right: 1.6em;
+}
+.my-btn-text {
+  right: 22;
+  bottom:8;
+  font-size: 2em;
+  position: absolute;
+  color: black;
+}
+.my-btn-text img{
+  display: block;
+  position: relative;
+  left: 0.75em;
+  top: 0.3em;
+  width: 2em;
+  height: 2em;
+}
+.my-btn-text i{
+  position: relative;
+  right: 5;
+  bottom: 6.5;
+}
