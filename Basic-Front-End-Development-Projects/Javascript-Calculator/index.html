@@ -11,44 +11,44 @@
   </head>
   <body>
     <div class='calculator'>
-      <div id='screen'>0</div>
+      <div id='screen'></div>
       <div class='row-group'>
         <div class='my-btn' id='my-btn-clear'><span class='my-btn-text'>CE</span></div>
         <div class='my-btn'><span class='my-btn-text'><i class="fa fa-angle-left" aria-hidden="true"></i></span></div>
-        <div class='my-btn'><span class='my-btn-text'><img src='images/division.png'></span></div>
+        <div class='my-btn operands'><span class='my-btn-text'>/</span></div>
       </div>
       <div class='row-group'>
-        <div class='my-btn'><span class='my-btn-text'>7</span></div>
-        <div class='my-btn'><span class='my-btn-text'>8</span></div>
-        <div class='my-btn'><span class='my-btn-text'>9</span></div>
-        <div class='my-btn'><span class='my-btn-text'>x</span></div>
+        <div class='my-btn digits'><span class='my-btn-text'>7</span></div>
+        <div class='my-btn digits'><span class='my-btn-text'>8</span></div>
+        <div class='my-btn digits'><span class='my-btn-text'>9</span></div>
+        <div class='my-btn operands'><span class='my-btn-text'>*</span></div>
       </div>
       <div class='row-group'>
-        <div class='my-btn'><span class='my-btn-text'>4</span></div>
-        <div class='my-btn'><span class='my-btn-text'>5</span></div>
-        <div class='my-btn'><span class='my-btn-text'>6</span></div>
-        <div class='my-btn'><span class='my-btn-text'>-</span></div>
+        <div class='my-btn digits'><span class='my-btn-text'>4</span></div>
+        <div class='my-btn digits'><span class='my-btn-text'>5</span></div>
+        <div class='my-btn digits'><span class='my-btn-text'>6</span></div>
+        <div class='my-btn operands'><span class='my-btn-text'>-</span></div>
       </div>
       <div class='row-group'>
-        <div class='my-btn'><span class='my-btn-text'>1</span></div>
-        <div class='my-btn'><span class='my-btn-text'>2</span></div>
-        <div class='my-btn'><span class='my-btn-text'>3</span></div>
-        <div class='my-btn'><span class='my-btn-text'>+</span></div>
+        <div class='my-btn digits'><span class='my-btn-text'>1</span></div>
+        <div class='my-btn digits'><span class='my-btn-text'>2</span></div>
+        <div class='my-btn digits'><span class='my-btn-text'>3</span></div>
+        <div class='my-btn operands'><span class='my-btn-text'>+</span></div>
       </div>
       <div class='row-group'>
-        <div class='my-btn'><span class='my-btn-text'>.</span></div>
-        <div class='my-btn'><span class='my-btn-text'>0</span></div>
+        <div class='my-btn digits'><span class='my-btn-text'>.</span></div>
+        <div class='my-btn digits'><span class='my-btn-text'>0</span></div>
         <div class='my-btn'><span class='my-btn-text'>A</span></div>
-        <div class='my-btn'><span class='my-btn-text'>=</span></div>
+        <div class='my-btn'><span class='my-btn-text' id='equal'>=</span></div>
       </div>
     </div>
 
     <h5 class='footer'>Written and coded by <a href="https://github.com/RaduMatees" target="_blank">Radu Matees</a></h5>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src='scripts/main.js'></script>
   </body>
 </html>

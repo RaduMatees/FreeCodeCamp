@@ -64,14 +64,6 @@ body {
   position: absolute;
   color: black;
 }
-.my-btn-text img{
-  display: block;
-  position: relative;
-  left: 0.75em;
-  top: 0.3em;
-  width: 2em;
-  height: 2em;
-}
 .my-btn-text i{
   position: relative;
   right: 5;
