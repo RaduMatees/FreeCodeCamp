@@ -2,17 +2,48 @@ $(document).ready(function(){
 
   var inputArr = []
   var operandsArr = ['+', '-', '*', '/']
+  var afterEqual = false
+
+  // truncate screen
+  function truncateScreen(number) {
+    if (number.length > 13) {
+      $('#screen').html('Digit Limit Met')
+    }
+  }
 
   // CE button clear screen
   $('#my-btn-clear').on('click', function(){
-    $('#screen').html('')
+    $('#screen').html('0')
     inputArr = []
+  })
+
+  // back button
+  $('#my-btn-back').on('click', function(){
+    afterEqual = false
+    var screenVal = $('#screen').text()
+    var maybeOperator = screenVal.substr(screenVal.length-1)
+    if (operandsArr.indexOf(maybeOperator) !== -1){
+      inputArr.pop()
+      inputArr.pop()
+    }
+    var newScreenVal = screenVal.substr(0, screenVal.length-1)
+    $('#screen').html(newScreenVal)
+    if ($('#screen').html() === ''){
+      inputArr = []
+    }
   })
 
   // push number to screen
   $('.digits').on('click', function(){
+    if (afterEqual === true) {$('#screen').html('')}
+    afterEqual = false
+    if ($('#screen').text() === '0' && $(this).children('.my-btn-text').html() !== '.'){
+      $('#screen').html('')
+    }
     var number = $(this).text()
     $('#screen').append(number)
+    var allScreen = $('#screen').text()
+    truncateScreen(allScreen)
   })
 
   // find last value
@@ -38,6 +69,7 @@ $(document).ready(function(){
     inputArr.push(operand)
   })
 
+
   // evaluate operation if user presses =
   $('#equal').on('click', function(){
     lastValue()
@@ -46,6 +78,7 @@ $(document).ready(function(){
     var result = eval(strOperation)
     result = parseFloat((result).toFixed(2))
     $('#screen').html(result)
+    afterEqual = true
     inputArr = []
   })
 
