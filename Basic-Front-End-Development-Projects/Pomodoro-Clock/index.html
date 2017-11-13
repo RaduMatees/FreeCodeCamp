@@ -4,13 +4,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pomodoro Clock</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel='stylesheet' href='styles/style.css'>
   </head>
   <body>
-    
+    <h1 class='text-center'>Pomodoro Clock</h1>
+    <input class='center-block' placeholder="I want to work on ..." type="text" id='my-work-input'>
+    <div class='modifiers text-center'>
+      <div class='modifiers-title'>Break Length</div>
+      <div class='modifiers-title'>Session Length</div>
+      <br/>
+      <div class='break'>
+        <i class="fa fa-minus signs" aria-hidden="true"></i>
+        <div class='modifiers-time'>5</div>
+        <i class="fa fa-plus signs" aria-hidden="true"></i>
+      </div>
+      <div class='session'>
+        <i class="fa fa-minus signs" aria-hidden="true"></i>
+        <div class='modifiers-time'>25</div>
+        <i class="fa fa-plus signs" aria-hidden="true"></i>
+      </div>
+    </div>
+    <div class="clock text-center center-block">
+      <span id='clock-text'>25:00</span>
+    </div>
+    <h5 class='footer text-center'>Written and coded by <a href="https://github.com/RaduMatees" target="_blank">Radu Matees</a></h5>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

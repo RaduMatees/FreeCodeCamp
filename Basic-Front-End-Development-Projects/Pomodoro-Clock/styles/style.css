@@ -1,0 +1,73 @@
+body {
+  background-color: #73AABA;
+}
+h1 {
+  margin-top: 40px;
+  font-family: 'Raleway', sans-serif;
+}
+#my-work-input {
+  padding: 10;
+  margin-top: 40px;
+  border-left: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  border-bottom: 1px solid black;
+  width: 300px;
+  outline: none;
+  transition: 0.2s ease;
+  background-color: #73AABA;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 1.2em;
+}
+#my-work-input:focus {
+  transform: scale(1.2, 1.2);
+}
+.modifiers {
+  margin-top: 30px;
+}
+.modifiers-time {
+  font-size: 1.6em;
+}
+.signs {
+  transition: 0.1s ease;
+  padding: 15px;
+}
+.signs:hover{
+  transform: scale(2,2);
+  cursor: pointer;
+}
+.break, .session {
+  display: inline-block;
+  margin-top: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+.signs, .modifiers-time {
+  display: inline-block;
+}
+.modifiers-title {
+  display: inline-block;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+.clock {
+  border: 1px solid black;
+  width: 300px;
+  height: 300px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  border-radius: 150px;
+  position: relative;
+  transition: 0.1s ease;
+}
+.clock:hover {
+  cursor: pointer;
+  background-color: #3f8396;
+}
+#clock-text {
+  font-size: 5em;
+  line-height: 4.2em;
+}
+.footer a {
+  color: #1a596b;
+}
