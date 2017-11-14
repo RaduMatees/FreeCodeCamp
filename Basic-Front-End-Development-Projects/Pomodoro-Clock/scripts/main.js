@@ -37,6 +37,12 @@ function changeModifiers() {
           $('.session .modifiers-time').html(5)
           $('#clock-text').html(5 + ":00")
         }
+        if (!startOrStop) {
+          clearInterval(timer)
+          startOrStop = true
+        }
+        work = true
+        $('.clock').css('background-color', '#80b771')
       }
       if ($(this).hasClass('plus')){
         $('.session .modifiers-time').html(content+5)
@@ -45,6 +51,12 @@ function changeModifiers() {
           $('.session .modifiers-time').html(60)
           $('#clock-text').html(60 + ":00")
         }
+        if (!startOrStop) {
+          clearInterval(timer)
+          startOrStop = true
+        }
+        work = true
+        $('.clock').css('background-color', '#80b771')
       }
     }
   })
@@ -85,8 +97,14 @@ function startTimer(){
     if (minutes === -1) {
       clearInterval(timer)
       alarm()
-      if (work) {breakTime()}
-      else {workTime()}
+      if (work) {
+        breakTime()
+        $('.clock').css('background-color', '#b57570')
+      }
+      else {
+        workTime()
+        $('.clock').css('background-color', '#80b771')
+      }
     }
   }, 1000)
 }

@@ -59,10 +59,10 @@ h1 {
   border-radius: 150px;
   position: relative;
   transition: 0.1s ease;
+  background-color: #80b771;
 }
 .clock:hover {
   cursor: pointer;
-  background-color: #6198a8;
 }
 #clock-text {
   font-size: 5em;
