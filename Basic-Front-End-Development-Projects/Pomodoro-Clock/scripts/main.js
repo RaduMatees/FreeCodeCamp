@@ -32,14 +32,18 @@ function changeModifiers() {
     if($(this).parent().parent().hasClass('session')){
       if ($(this).hasClass('minus')){
         $('.session .modifiers-time').html(content-5)
+        $('#clock-text').html(content-5 + ":00")
         if (content <= 5) {
           $('.session .modifiers-time').html(5)
+          $('#clock-text').html(5 + ":00")
         }
       }
       if ($(this).hasClass('plus')){
         $('.session .modifiers-time').html(content+5)
+        $('#clock-text').html(content+5 + ":00")
         if (content >= 60) {
           $('.session .modifiers-time').html(60)
+          $('#clock-text').html(60 + ":00")
         }
       }
     }
@@ -80,6 +84,7 @@ function startTimer(){
     }
     if (minutes === -1) {
       clearInterval(timer)
+      alarm()
       if (work) {breakTime()}
       else {workTime()}
     }
@@ -98,4 +103,9 @@ function workTime() {
   $('#clock-text').html(time + ":00")
   work = true
   startTimer()
+}
+
+function alarm() {
+  var x = new Audio('./sounds/analog.mp3')
+  x.play()
 }
