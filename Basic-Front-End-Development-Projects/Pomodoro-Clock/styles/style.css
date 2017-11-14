@@ -71,3 +71,10 @@ h1 {
 .footer a {
   color: #1a596b;
 }
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
