@@ -1,41 +1,84 @@
 $(document).ready(function(){
 
-  $('.break .minus').on('click', function(){
-    var content = parseInt($('.break .modifiers-time').text())
-    $('.break .modifiers-time').html(content-1)
-    if (content <= 0){
-      $('.break .modifiers-time').html(0)
-    }
-  })
-
-  $('.break .plus').on('click', function(){
-    var content = parseInt($('.break .modifiers-time').text())
-    $('.break .modifiers-time').html(content+1)
-    if (content >= 10){
-      $('.break .modifiers-time').html(10)
-    }
-  })
-
-  $('.session .minus').on('click', function(){
-    var content = parseInt($('.session .modifiers-time').text())
-    $('.session .modifiers-time').html(content-5)
-    if (content <= 5) {
-      $('.session .modifiers-time').html(5)
-    }
-  })
-
-  $('.session .plus').on('click', function(){
-    var content = parseInt($('.session .modifiers-time').text())
-    $('.session .modifiers-time').html(content+5)
-    if (content >= 60) {
-      $('.session .modifiers-time').html(60)
-    }
-  })
+  changeModifiers()
+  startStopClock()
 
 })
 
-function clock(){
-  setInterval(function(){
-    alert('bruh')
-  }, 3000)
+var startOrStop = true
+var timer // this is the timer
+
+function changeModifiers() {
+
+  $('.break .minus, .break .plus, .session .minus, .session .plus').on('click', function() {
+    var content = parseInt($(this).parent().siblings('.modifiers-time').text())
+    // for class break
+    if ($(this).parent().parent().hasClass('break')){
+      if ($(this).hasClass('minus')){
+        $('.break .modifiers-time').html(content-1)
+        if (content <= 0){
+          $('.break .modifiers-time').html(0)
+        }
+      }
+      if ($(this).hasClass('plus')){
+        $('.break .modifiers-time').html(content+1)
+        if (content >= 10){
+          $('.break .modifiers-time').html(10)
+        }
+      }
+    }
+    // for class session
+    if($(this).parent().parent().hasClass('session')){
+      if ($(this).hasClass('minus')){
+        $('.session .modifiers-time').html(content-5)
+        if (content <= 5) {
+          $('.session .modifiers-time').html(5)
+        }
+      }
+      if ($(this).hasClass('plus')){
+        $('.session .modifiers-time').html(content+5)
+        if (content >= 60) {
+          $('.session .modifiers-time').html(60)
+        }
+      }
+    }
+  })
+
+}
+
+function startStopClock() {
+  $('.clock').on('click', function() {
+    if (startOrStop) {startTimer()}
+    else {
+      startOrStop = true
+      clearInterval(timer)
+    }
+  })
+}
+
+function startTimer(){
+  startOrStop = false
+  var screenTime = $('#clock-text').text()
+  var seconds = parseInt(screenTime.substr(screenTime.length-2))
+  var minutes = parseInt(screenTime.substr(0, screenTime.length-3))
+
+  timer = setInterval(function() {
+    // format seconds with 0 before, in case of 1 digit
+    var minutesString = minutes.toString()
+    var secondsString = seconds.toString()
+    if (secondsString.length === 1) {
+      secondsString = "0" + secondsString
+    }
+    // append changes to screen
+    $('#clock-text').html(minutesString + ":" + secondsString)
+    // decrement seconds and minutes
+    seconds -= 1
+    if (seconds === -1) {
+      seconds = 59
+      minutes -= 1
+    }
+    if (minutes === -1) {
+      clearInterval(timer) // or do another function
+    }
+  }, 1000)
 }
