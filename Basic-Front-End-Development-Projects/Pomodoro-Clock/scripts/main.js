@@ -6,6 +6,7 @@ $(document).ready(function(){
 })
 
 var startOrStop = true
+var work = true
 var timer // this is the timer
 
 function changeModifiers() {
@@ -16,8 +17,8 @@ function changeModifiers() {
     if ($(this).parent().parent().hasClass('break')){
       if ($(this).hasClass('minus')){
         $('.break .modifiers-time').html(content-1)
-        if (content <= 0){
-          $('.break .modifiers-time').html(0)
+        if (content <= 1){
+          $('.break .modifiers-time').html(1)
         }
       }
       if ($(this).hasClass('plus')){
@@ -78,7 +79,23 @@ function startTimer(){
       minutes -= 1
     }
     if (minutes === -1) {
-      clearInterval(timer) // or do another function
+      clearInterval(timer)
+      if (work) {breakTime()}
+      else {workTime()}
     }
   }, 1000)
+}
+
+function breakTime() {
+  var time = $('.break .modifiers-time').text()
+  $('#clock-text').html(time + ":00")
+  work = false
+  startTimer()
+}
+
+function workTime() {
+  var time = $('.session .modifiers-time').text()
+  $('#clock-text').html(time + ":00")
+  work = true
+  startTimer()
 }
