@@ -1,0 +1,90 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #c7e3e8;
+}
+h1, h2, h4 {
+  font-family: 'Fredoka One', cursive;
+}
+.scoreBoard {
+  width: 320px;
+  margin-top: 10px;
+  height: 40px;
+}
+.scoreSquares {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+}
+.X0 {
+  margin-top: 20px;
+  font-family: 'Fredoka One', cursive;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+  font-size: 40px;
+}
+.just0{
+  color: #872f2f;
+}
+.justX{
+  color: #4c773b;
+}
+#player{
+  text-align: left;
+}
+#result {
+  text-align: center;
+}
+#ai {
+  text-align: right;
+}
+.board {
+  width: 302px;
+  height: 300px;
+  font-size: 0;
+  margin-top: 70px;
+}
+.squares {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  font-size: 12px;
+}
+.squares:hover {
+  cursor: pointer;
+}
+#s1, #s4, #s7 {
+  border-right: 3px solid #24456b;
+}
+#s2, #s5, #s8 {
+  border-right: 3px solid #24456b;
+}
+#s1, #s2, #s3 {
+  border-bottom: 3px solid #24456b;
+}
+#s4, #s5, #s6 {
+  border-bottom: 3px solid #24456b;
+}
+.weaponChoose {
+  display: inline-block;
+  position: relative;
+  bottom: 10;
+}
+.weapons {
+  position: relative;
+  height: 80px;
+  margin-top: 20px;
+  width: 400px;
+}
+.weapons .squares {
+  transition: 0.1s ease;
+}
+.weapons .squares:hover {
+  transform: scale(1.5, 1.5);
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

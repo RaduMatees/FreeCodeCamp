@@ -3,15 +3,37 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Pomodoro Clock</title>
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+    <title>Tic-Tac-Toe Game</title>
+    <link href="https://fonts.googleapis.com/css?family=Concert+One|Fredoka+One" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel='stylesheet' href='styles/style.css'>
   </head>
   <body>
+    <h1 class='text-center'>Tic Tac Toe Game</h1>
+    <div class='scoreBoard center-block'>
+      <h4 class='scoreSquares' id='player'>Player score: 0</h4>
+      <h2 class='scoreSquares' id='result'>You Win</h2>
+      <h4 class='scoreSquares' id='ai'>Computer score: 0</h4>
+    </div>
+    <div class = 'board center-block'>
+      <div class='squares' id="s1"><span class='X0 justX'>X</span></div>
+      <div class='squares' id="s2"><span class='X0 just0'>0</span></div>
+      <div class='squares' id="s3"><span class='X0 justX'>X</span></div>
+      <div class='squares' id="s4"><span class='X0 just0'>0</span></div>
+      <div class='squares' id="s5"><span class='X0 justX'>X</span></div>
+      <div class='squares' id="s6"><span class='X0 just0'>0</span></div>
+      <div class='squares' id="s7"><span class='X0 justX'>X</span></div>
+      <div class='squares' id="s8"><span class='X0 just0'>0</span></div>
+      <div class='squares' id="s9"><span class='X0 justX'>X</span></div>
+    </div>
+    <div class='weapons center-block'>
+      <div class='squares'><span class='X0 justX'>X</span></div>
+      <h4 class='weaponChoose'>Choose your weapon</h4>
+      <div class='squares'><span class='X0 just0'>0</span></div>
+    </div>
 
+    <h5 class='footer text-center'>Written and coded by <a href="https://github.com/RaduMatees" target="_blank">Radu Matees</a></h5>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
