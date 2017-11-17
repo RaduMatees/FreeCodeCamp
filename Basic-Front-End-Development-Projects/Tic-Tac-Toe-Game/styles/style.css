@@ -37,6 +37,7 @@ h1, h2, h4 {
 }
 #result {
   text-align: center;
+  visibility: hidden;
 }
 #ai {
   text-align: right;
