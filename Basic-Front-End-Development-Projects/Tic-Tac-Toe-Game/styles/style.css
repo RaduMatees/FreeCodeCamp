@@ -23,6 +23,8 @@ h1, h2, h4 {
   display: block;
   text-align: center;
   font-size: 40px;
+  position: absolute;
+  right: 36;
 }
 .just0{
   color: #872f2f;
@@ -50,26 +52,27 @@ h1, h2, h4 {
   height: 100px;
   display: inline-block;
   font-size: 12px;
+  position: relative;
 }
 .squares:hover {
   cursor: pointer;
 }
+#s0, #s3, #s6 {
+  border-right: 3px solid #24456b;
+}
 #s1, #s4, #s7 {
   border-right: 3px solid #24456b;
 }
-#s2, #s5, #s8 {
-  border-right: 3px solid #24456b;
-}
-#s1, #s2, #s3 {
+#s0, #s1, #s2 {
   border-bottom: 3px solid #24456b;
 }
-#s4, #s5, #s6 {
+#s3, #s4, #s5 {
   border-bottom: 3px solid #24456b;
 }
 .weaponChoose {
   display: inline-block;
   position: relative;
-  bottom: 10;
+  bottom: 45;
 }
 .weapons {
   position: relative;
