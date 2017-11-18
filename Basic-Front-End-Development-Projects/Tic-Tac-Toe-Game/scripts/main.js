@@ -4,8 +4,21 @@ $(document).ready(function() {
   var player2weapon = '0'
   var player1Turn = true
   var positions = ['#', '#', '#', '#', '#', '#', '#', '#', '#']
+  $('.board .squares').css('pointer-events', 'none')
 
+  chooseWeapon()
   drawSquares()
+
+  function chooseWeapon() {
+    $('.weapons .squares').on('click', function() {
+      $('.board .squares').css('pointer-events', 'auto')
+      player1weapon = $(this).children('.X0').html()
+      if (player1weapon === '0') {
+        player2weapon = 'X'
+      }
+      $('.weapons').hide()
+    })
+  }
 
   function drawSquares() {
     $('.board .squares').on('click', function() {
@@ -32,10 +45,10 @@ $(document).ready(function() {
     index = id.substr(1)
     positions[index] = squareContent
     // who's player is the last move, so who wins?
-    if (player1Turn) {
-      var whoWins = '0'
-    } else {
+    if (squareContent === 'X') {
       var whoWins = 'X'
+    } else {
+      var whoWins = '0'
     }
     checkIfGameOver(whoWins)
   }
