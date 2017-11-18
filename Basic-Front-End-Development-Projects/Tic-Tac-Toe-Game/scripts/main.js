@@ -71,6 +71,15 @@ $(document).ready(function() {
       celebrateWin(XOr0, 0, 4, 8)
     } else if (positions[2] === XOr0 && positions[4] === XOr0 && positions[6] === XOr0) {
       celebrateWin(XOr0, 2, 4, 6)
+    } else {
+      var count = 0
+      for (i=0; i<9; i++){
+        if ($('#s'+i).children('.X0').html() !== '') {count += 1}
+        if (count === 9) {
+          $('#result').html("It's a draw").css('visibility', 'visible')
+          waitTillNextTurn()
+        }
+      }
     }
   }
 
