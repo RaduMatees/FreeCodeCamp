@@ -43,22 +43,48 @@ $(document).ready(function() {
   function checkIfGameOver(XOr0) {
     // check possible winning strategies
     if (positions[0] === XOr0 && positions[1] === XOr0 && positions[2] === XOr0){
-      $('#result').html('Player ' + XOr0 + ' wins').css('visibility', 'visible')
+      celebrateWin(XOr0, 0, 1, 2)
     } else if (positions[3] === XOr0 && positions[4] === XOr0 && positions[5] === XOr0){
-      $('#result').html('Player ' + XOr0 + ' wins').css('visibility', 'visible')
+      celebrateWin(XOr0, 3, 4, 5)
     } else if (positions[6] === XOr0 && positions[7] === XOr0 && positions[8] === XOr0) {
-      $('#result').html('Player ' + XOr0 + ' wins').css('visibility', 'visible')
+      celebrateWin(XOr0, 6, 7, 8)
     } else if (positions[0] === XOr0 && positions[3] === XOr0 && positions[6] === XOr0) {
-      $('#result').html('Player ' + XOr0 + ' wins').css('visibility', 'visible')
+      celebrateWin(XOr0, 0, 3, 6)
     } else if (positions[1] === XOr0 && positions[4] === XOr0 && positions[7] === XOr0) {
-      $('#result').html('Player ' + XOr0 + ' wins').css('visibility', 'visible')
+      celebrateWin(XOr0, 1, 4, 7)
     } else if (positions[2] === XOr0 && positions[5] === XOr0 && positions[8] === XOr0) {
-      $('#result').html('Player ' + XOr0 + ' wins').css('visibility', 'visible')
+      celebrateWin(XOr0, 2, 5, 8)
     } else if (positions[0] === XOr0 && positions[4] === XOr0 && positions[8] === XOr0) {
-      $('#result').html('Player ' + XOr0 + ' wins').css('visibility', 'visible')
+      celebrateWin(XOr0, 0, 4, 8)
     } else if (positions[2] === XOr0 && positions[4] === XOr0 && positions[6] === XOr0) {
-      $('#result').html('Player ' + XOr0 + ' wins').css('visibility', 'visible')
+      celebrateWin(XOr0, 2, 4, 6)
     }
+  }
+
+  function celebrateWin(XOr0, i, j ,k) {
+    // color the winning line
+    $('#result').html('Player ' + XOr0 + ' wins').css('visibility', 'visible')
+    $('#s'+i).children('.X0').addClass('just'+XOr0)
+    $('#s'+j).children('.X0').addClass('just'+XOr0)
+    $('#s'+k).children('.X0').addClass('just'+XOr0)
+    // increasce score board
+    var score = parseInt($('#scoreCount'+XOr0).text())
+    $('#scoreCount'+XOr0).html(score+1)
+    waitTillNextTurn(XOr0)
+  }
+
+  function waitTillNextTurn(XOr0) {
+    // make board unclickeable
+    $('.board .squares').css('pointer-events', 'none')
+    setTimeout(function(){
+      // reset board
+      $('#result').css('visibility', 'hidden')
+      $('.board .squares').children('.X0').html('')
+      $('.board .squares').children('.X0').removeClass('justX just0')
+      $('.board .squares').css('pointer-events', 'auto')
+      positions = ['#', '#', '#', '#', '#', '#', '#', '#', '#']
+      player1Turn = true
+    }, 3000)
   }
 
 })
