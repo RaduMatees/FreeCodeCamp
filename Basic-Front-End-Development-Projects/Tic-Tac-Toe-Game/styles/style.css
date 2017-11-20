@@ -92,3 +92,12 @@ h1, h2, h4 {
   bottom: 0;
   width: 100%;
 }
+.howToPlay{
+  position: relative;
+  height: 80px;
+  margin-top: 20px;
+  width: 400px;
+}
+.player {
+  width: 97px;
+}

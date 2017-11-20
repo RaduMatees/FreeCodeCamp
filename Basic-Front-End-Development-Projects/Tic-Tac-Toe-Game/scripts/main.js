@@ -5,9 +5,22 @@ $(document).ready(function() {
   var player1Turn = true
   var positions = ['#', '#', '#', '#', '#', '#', '#', '#', '#']
   $('.board .squares').css('pointer-events', 'none')
+  $('.weapons').hide()
 
-  chooseWeapon()
-  drawSquares()
+  choosePlayer()
+
+  function choosePlayer() {
+    $('.player').on('click', function() {
+      if ($(this).children('.X0').html() === '2P') {
+        $('.howToPlay').hide()
+        $('.weapons').show()
+        chooseWeapon()
+        drawSquares()
+      } else {
+        alert('Not yet implemented')
+      }
+    })
+  }
 
   function chooseWeapon() {
     $('.weapons .squares').on('click', function() {
