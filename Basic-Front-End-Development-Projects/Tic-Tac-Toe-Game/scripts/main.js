@@ -43,20 +43,91 @@ $(document).ready(function() {
         clickedSquare.html(player1weapon)
         var squareId = $(this).attr('id')
         pushMoveToArray(squareId)
-        makeMoveAI(player2weapon)
+        // makeEasyMoveAI()
+        var playerWeapon = player2weapon
+        var bestObject = makeHardMoveAI(positions, playerWeapon)
+        var bestIndex = bestObject.indexActually
+        $('#s'+bestIndex).children('.X0').html(player2weapon)
+        pushMoveToArray('s'+bestIndex)
       }
     })
   }
 
-  function makeMoveAI(weaponAI) {
+  function makeEasyMoveAI() {
     var randomSquare = Math.round(Math.random()*8)
     var squareId = 's'+randomSquare
     if ($('#'+squareId).children('.X0').html() === '') {
-      $('#'+squareId).children('.X0').html(weaponAI)
+      $('#'+squareId).children('.X0').html(player2weapon)
       pushMoveToArray(squareId)
     } else {
-      makeMoveAI(weaponAI)
+      makeEasyMoveAI(player2weapon)
     }
+  }
+
+  function makeHardMoveAI(newBoard, player) {
+    var availSpots = emptyIndexies(newBoard)
+    // checks for the terminal states such as win, lose, and tie and returning a value accordingly
+    if (checkIfGameOverAI(newBoard, player1weapon)){
+       return {score:-10}
+    }
+  	else if (checkIfGameOverAI(newBoard, player2weapon)){
+      return {score:10}
+  	}
+    else if (availSpots.length === 0){
+    	return {score:0}
+    }
+
+    // an array to collect all the objects
+    var moves = []
+    // loop through available spots
+    for (var i = 0; i < availSpots.length; i++){
+      //create an object for each and store the index of that spot
+      var move = {}
+      move.indexActually = availSpots[i]
+    	move.index = newBoard[availSpots[i]]
+
+      // set the empty spot to the current player
+      newBoard[availSpots[i]] = player
+
+      /*collect the score resulted from calling minimax
+        on the opponent of the current player*/
+      if (player === player2weapon){
+        var result = makeHardMoveAI(newBoard, player1weapon);
+        move.score = result.score
+      }
+      else {
+        var result = makeHardMoveAI(newBoard, player2weapon);
+        move.score = result.score
+      }
+      // reset the spot to empty
+      newBoard[availSpots[i]] = move.index
+      // push the object to the array
+      moves.push(move)
+    }
+
+    // if it is the computer's turn loop over the moves and choose the move with the highest score
+    var bestMove
+    if (player === player2weapon){
+      var bestScore = -10000
+      for (var i = 0; i < moves.length; i++){
+        if (moves[i].score > bestScore) {
+          bestScore = moves[i].score
+          bestMove = i
+        }
+      }
+    } else {
+      // else loop over the moves and choose the move with the lowest score
+      var bestScore = 10000;
+      for (var i = 0; i < moves.length; i++){
+        if (moves[i].score < bestScore){
+          bestScore = moves[i].score
+          bestMove = i
+        }
+      }
+    }
+
+    // return the chosen move (object) from the moves array
+    return moves[bestMove]
   }
 
   function drawSquares() {
@@ -146,6 +217,39 @@ $(document).ready(function() {
       positions = ['#', '#', '#', '#', '#', '#', '#', '#', '#']
       player1Turn = true
     }, 3000)
+  }
+
+
+
+
+
+
+
+  function checkIfGameOverAI(board, player){
+    if (
+    (board[0] == player && board[1] == player && board[2] == player) ||
+    (board[3] == player && board[4] == player && board[5] == player) ||
+    (board[6] == player && board[7] == player && board[8] == player) ||
+    (board[0] == player && board[3] == player && board[6] == player) ||
+    (board[1] == player && board[4] == player && board[7] == player) ||
+    (board[2] == player && board[5] == player && board[8] == player) ||
+    (board[0] == player && board[4] == player && board[8] == player) ||
+    (board[2] == player && board[4] == player && board[6] == player)
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  function emptyIndexies(board) {
+    var arr = []
+    for (i=0; i<board.length; i++){
+      if (board[i] != "0" && board[i] != "X"){
+        arr.push(i)
+      }
+    }
+    return arr
   }
 
 })
