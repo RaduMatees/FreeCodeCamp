@@ -101,3 +101,13 @@ h1, h2, h4 {
 .player {
   width: 97px;
 }
+.howToPlay .squares {
+  transition: 0.1s ease;
+}
+.howToPlay .squares:hover {
+  transform: scale(1.5, 1.5);
+}
+.opponent {
+  position: relative;
+  right: 10px;
+}

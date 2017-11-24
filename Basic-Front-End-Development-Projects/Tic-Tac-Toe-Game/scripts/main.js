@@ -12,13 +12,14 @@ $(document).ready(function() {
   function choosePlayer() {
     $('.player').on('click', function() {
       if ($(this).children('.X0').html() === '2P') {
-        $('.howToPlay').hide()
-        $('.weapons').show()
         chooseWeapon()
         drawSquares()
       } else {
-        alert('Not yet implemented')
+        chooseWeapon()
+        drawSquaresAI()
       }
+      $('.howToPlay').hide()
+      $('.weapons').show()
     })
   }
 
@@ -31,6 +32,31 @@ $(document).ready(function() {
       }
       $('.weapons').hide()
     })
+  }
+
+  function drawSquaresAI() {
+    $('.board .squares').on('click', function() {
+      var clickedSquare = $(this).children('.X0')
+      // if the square is free, do this
+      if (clickedSquare.html() === ''){
+        // switch between turns
+        clickedSquare.html(player1weapon)
+        var squareId = $(this).attr('id')
+        pushMoveToArray(squareId)
+        makeMoveAI(player2weapon)
+      }
+    })
+  }
+
+  function makeMoveAI(weaponAI) {
+    var randomSquare = Math.round(Math.random()*8)
+    var squareId = 's'+randomSquare
+    if ($('#'+squareId).children('.X0').html() === '') {
+      $('#'+squareId).children('.X0').html(weaponAI)
+      pushMoveToArray(squareId)
+    } else {
+      makeMoveAI(weaponAI)
+    }
   }
 
   function drawSquares() {
