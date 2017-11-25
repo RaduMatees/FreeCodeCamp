@@ -39,20 +39,20 @@ $(document).ready(function() {
       var clickedSquare = $(this).children('.X0')
       // if the square is free, do this
       if (clickedSquare.html() === ''){
-        // switch between turns
         clickedSquare.html(player1weapon)
         var squareId = $(this).attr('id')
         pushMoveToArray(squareId)
         // makeEasyMoveAI()
         var playerWeapon = player2weapon
         var bestObject = makeHardMoveAI(positions, playerWeapon)
-        var bestIndex = bestObject.indexActually
+        var bestIndex = bestObject.index
         $('#s'+bestIndex).children('.X0').html(player2weapon)
         pushMoveToArray('s'+bestIndex)
       }
     })
   }
 
+  // Easy Opponent, just picks up a random free square
   function makeEasyMoveAI() {
     var randomSquare = Math.round(Math.random()*8)
     var squareId = 's'+randomSquare
@@ -83,14 +83,11 @@ $(document).ready(function() {
     for (var i = 0; i < availSpots.length; i++){
       //create an object for each and store the index of that spot
       var move = {}
-      move.indexActually = availSpots[i]
-    	move.index = newBoard[availSpots[i]]
-
-      // set the empty spot to the current player
+      move.index = availSpots[i]
+      // set the empty spot to the current player's weapon
       newBoard[availSpots[i]] = player
 
-      /*collect the score resulted from calling minimax
-        on the opponent of the current player*/
+      //collect the score resulted from calling minimax on the opponent of the current player
       if (player === player2weapon){
         var result = makeHardMoveAI(newBoard, player1weapon);
         move.score = result.score
@@ -100,7 +97,7 @@ $(document).ready(function() {
         move.score = result.score
       }
       // reset the spot to empty
-      newBoard[availSpots[i]] = move.index
+      newBoard[availSpots[i]] = '#'
       // push the object to the array
       moves.push(move)
     }
@@ -218,12 +215,6 @@ $(document).ready(function() {
       player1Turn = true
     }, 3000)
   }
-
-
-
-
-
-
 
   function checkIfGameOverAI(board, player){
     if (
