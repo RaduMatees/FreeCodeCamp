@@ -4,8 +4,10 @@ $(document).ready(function() {
   var player2weapon = '0'
   var player1Turn = true
   var positions = ['#', '#', '#', '#', '#', '#', '#', '#', '#']
+  var easy = true
   $('.board .squares').css('pointer-events', 'none')
   $('.weapons').hide()
+  $('.difficulty').hide()
 
   choosePlayer()
 
@@ -14,11 +16,26 @@ $(document).ready(function() {
       if ($(this).children('.X0').html() === '2P') {
         chooseWeapon()
         drawSquares()
+        $('.weapons').show()
       } else {
+        chooseDifficulty()
+        $('.difficulty').show()
+      }
+      $('.howToPlay').hide()
+    })
+  }
+
+  function chooseDifficulty() {
+    $('.dif').on('click', function() {
+      if ($(this).children('.X0').html() === 'EASY'){
+        chooseWeapon()
+        drawSquaresAI()
+      } else {
+        easy = false
         chooseWeapon()
         drawSquaresAI()
       }
-      $('.howToPlay').hide()
+      $('.difficulty').hide()
       $('.weapons').show()
     })
   }
@@ -42,12 +59,14 @@ $(document).ready(function() {
         clickedSquare.html(player1weapon)
         var squareId = $(this).attr('id')
         pushMoveToArray(squareId)
-        // makeEasyMoveAI()
-        var playerWeapon = player2weapon
-        var bestObject = makeHardMoveAI(positions, playerWeapon)
-        var bestIndex = bestObject.index
-        $('#s'+bestIndex).children('.X0').html(player2weapon)
-        pushMoveToArray('s'+bestIndex)
+        if (easy) {makeEasyMoveAI()}
+        else {
+          var playerWeapon = player2weapon
+          var bestObject = makeHardMoveAI(positions, playerWeapon)
+          var bestIndex = bestObject.index
+          $('#s'+bestIndex).children('.X0').html(player2weapon)
+          pushMoveToArray('s'+bestIndex)
+        }
       }
     })
   }

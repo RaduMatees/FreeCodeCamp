@@ -111,3 +111,22 @@ h1, h2, h4 {
   position: relative;
   right: 10px;
 }
+.difficulty {
+  position: relative;
+  height: 80px;
+  margin-top: 20px;
+  width: 350px;
+  left: 25px;
+}
+.easy {
+  margin-right: -20px;
+  margin-left: 50px;
+  transition: 0.1s ease;
+}
+.hard {
+  margin-left: 71px;
+  transition: 0.1s ease;
+}
+.easy:hover, .hard:hover {
+  transform: scale(1.1, 1.1);
+}
