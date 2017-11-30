@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ECE7EE;
+}
+#simonBoard{
+  width: 460px;
+  height:460px;
+  border-radius:100%;
+  position: relative;
+  margin:auto;
+  background-color:#333;
+  top:10vh;
+  box-shadow: 0px 0px 12px #222;
+  font-size: 0;
+}
+#green {
+  display: inline-block;
+  background-color: green;
+  margin-left: 20px;
+  margin-top: 20px;
+  width: 200px;
+  height: 200px;
+  border-top-left-radius: 100%;
+}
+#red {
+  display: inline-block;
+  background-color: red;
+  margin-left: 20px;
+  margin-top: 20px;
+  width: 200px;
+  height: 200px;
+  border-top-right-radius: 100%;
+}
+#yellow {
+  display: inline-block;
+  background-color: yellow;
+  margin-left: 20px;
+  margin-top: 20px;
+  width: 200px;
+  height: 200px;
+  border-bottom-left-radius: 100%;
+}
+#blue {
+  display: inline-block;
+  background-color: blue;
+  margin-left: 20px;
+  margin-top: 20px;
+  width: 200px;
+  height: 200px;
+  border-bottom-right-radius: 100%;
+}
+#simonCenter {
+  position: absolute;
+  width: 230px;
+  height:230px;
+  left: 115px;
+  top: 115px;
+  background-color: #ECE7EE;
+  border-radius: 100%;
+  border: 20px solid #333333;
+}
