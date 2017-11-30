@@ -10,7 +10,7 @@ body {
   position: relative;
   margin:auto;
   background-color:#333;
-  top:10vh;
+  top:15vh;
   box-shadow: 0px 0px 12px #222;
   font-size: 0;
 }
@@ -59,4 +59,73 @@ body {
   background-color: #ECE7EE;
   border-radius: 100%;
   border: 20px solid #333333;
+}
+#title {
+  font-family: 'Anton', sans-serif;
+  font-size: 40px;
+  margin-top: 25px;
+}
+.buttonsLine {
+  font-family: 'Ubuntu Condensed', sans-serif;
+  display: inline-block;
+  margin-left: 22px;
+}
+#countButton {
+  border: 3px solid #333333;
+  border-radius: 10px;
+  width: 35px;
+  height: 35px;
+  background-color: #32050C;
+  color: #DC0D29;
+  font-size: 13px;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  margin: auto;
+}
+#counter {
+  position: relative;
+  top: 7;
+  opacity: 0.3;
+}
+.startStrictButton {
+  border: 3px solid #333333;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  background-color: #32050C;
+  margin: auto;
+  margin-bottom: 16px;
+}
+#offOn {
+  margin-left: 42px;
+}
+#offOn h5 {
+  position: relative;
+  bottom: 5px;
+}
+.offOnInline {
+  display: inline-block;
+}
+#offOnButton {
+  width: 40px;
+  height: 20px;
+  border: 3px solid #333333;
+  margin:0 5 0 5;
+  border-radius: 5px;
+  background-color: #333333;
+}
+#drag {
+  width: 17px;
+  height: 14px;
+  border-radius:2px;
+  background-color: #3193DE;
+  position: absolute;
+}
+.startStrictButton:hover, .colors:hover, #offOnButton {
+  cursor: pointer;
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
