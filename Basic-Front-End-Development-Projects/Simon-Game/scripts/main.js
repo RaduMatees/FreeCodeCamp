@@ -2,9 +2,12 @@ $(document).ready(function() {
 
   var offOnStatus = false
   var startStatus = false
+  var strict = false
   var counter = 1
   var checkIfRight = 0 // human variable, for repeating what simon said
-  var i = 0
+  var repeat // simon repeating interval
+  var beeper
+  var pause // if user gets wrong, pause before simon playing again
   var colors = {
     0: 'green',
     1: 'red',
@@ -18,24 +21,44 @@ $(document).ready(function() {
     3: '#7272ff'
   }
   var simonMoves = []
-  var humanMoves = []
 
   $('.colors').css('pointer-events', 'none')
   offOnGame()
   startGame()
   humanPlays()
 
+  $('#strictButton').on('click', function() {
+    if (offOnStatus){
+      if (!strict){
+        $(this).css('background-color', '#DC0D29')
+        strict = true
+      } else {
+        $(this).css('background-color', '#32050C')
+        strict = false
+      }
+    }
+  })
+
   function startGame() {
     $('#startButton').on('click', function() {
       if (offOnStatus) {
         $('.colors').css('pointer-events', 'none')
-        $('#startButton').css('background-color', '#DC0D29')
+        $(this).css('background-color', '#DC0D29')
         startStatus = true
+        // return to default colors
+        $('#green').css('background-color', 'green')
+        $('#red').css('background-color', 'red')
+        $('#yellow').css('background-color', 'yellow')
+        $('#blue').css('background-color', 'blue')
+        // stop if simon is repeating an interval
+        clearInterval(repeat)
+        clearInterval(beeper)
+        clearInterval(pause)
         beepingCounter(function() {
           $('#counter').html('01')
-          humanMoves = []
           simonMoves = []
           counter = 1
+          checkIfRight = 0
           simonPlays()
         })
       }
@@ -50,7 +73,21 @@ $(document).ready(function() {
         $('#counter').css('opacity', '0.3')
         offOnStatus = false
         $('#startButton').css('background-color', '#32050C')
+        $('#strictButton').css('background-color', '#32050C')
         startStatus = false
+        strict = false
+        simonMoves = []
+        counter = 1
+        checkIfRight = 0
+        clearInterval(repeat)
+        clearInterval(beeper)
+        clearInterval(pause)
+        $('.colors').css('pointer-events', 'none')
+        // return to default colors
+        $('#green').css('background-color', 'green')
+        $('#red').css('background-color', 'red')
+        $('#yellow').css('background-color', 'yellow')
+        $('#blue').css('background-color', 'blue')
       } else {
         $(this).find('.drag').addClass('active')
         $('#counter').css('opacity', '1')
@@ -72,15 +109,20 @@ $(document).ready(function() {
   }
 
   function simonRepeat(callback) {
-    var repeat = setInterval(function() {
+    var i = 0
+    repeat = setInterval(function() {
       $('#'+colors[simonMoves[i]]).css('background-color', highlightedColors[simonMoves[i]])
       playSound(simonMoves[i]+1)
-      $('#'+colors[simonMoves[i-1]]).css('background-color', colors[simonMoves[i-1]])
+      if (simonMoves[i] !== simonMoves[i-1]) {
+        $('#'+colors[simonMoves[i-1]]).css('background-color', colors[simonMoves[i-1]])
+      }
       i += 1
       if (i === simonMoves.length) {
-        $('#'+colors[simonMoves[i-1]]).css('background-color', colors[simonMoves[i-1]])
-        i = 0
         clearInterval(repeat)
+        // waits a bit before turning of last played position
+        var pause = setTimeout(function() {
+          $('#'+colors[simonMoves[i-1]]).css('background-color', colors[simonMoves[i-1]])
+        }, 800)
         callback()
       }
     }, 800)
@@ -91,15 +133,10 @@ $(document).ready(function() {
       // revert to normal background color
       var idColor = $(this).attr('id')
       $(this).css('background-color', idColor)
-    })
-    $('.colors').on('mousedown', function() {
-      // add highlighted background color
-      var idColor = $(this).attr('id')
       var key = _.findKey(colors, function(v) {
         return v === idColor;
       });
-      $(this).css('background-color', highlightedColors[key])
-      // if human clicks right, increment checkIfRight counter
+      // if human clicks right
       if (simonMoves[checkIfRight] === parseInt(key)) {
         playSound(parseInt(key)+1)
         checkIfRight += 1
@@ -117,19 +154,42 @@ $(document).ready(function() {
           })
         }
       } else {
-        console.log('WRONG')
+        playSoundError()
+        if (strict){
+          beepingCounter(function() {
+            $('#counter').html('01')
+            checkIfRight = 0
+            simonMoves = []
+            counter = 1
+            simonPlays()
+          })
+        } else {
+          beepingCounter(function() {
+            simonRepeat() // ??????
+          })
+        }
       }
-      /*humanMoves.push(parseInt(key))
-      console.log('Human ' + humanMoves)*/
+    })
+    $('.colors').on('mousedown', function() {
+      // add highlighted background color
+      var idColor = $(this).attr('id')
+      var key = _.findKey(colors, function(v) {
+        return v === idColor;
+      });
+      $(this).css('background-color', highlightedColors[key])
     })
   }
 
   function beepingCounter(callback) {
+    $('#counter').html('!!')
     var count = 0
     beeper = setInterval(function() {
       if (count === 6) {
         clearInterval(beeper)
-        callback()
+        // make a short pause before starting again
+        pause = setTimeout(function() {
+          callback()
+        }, 1600)
       }
       count += 1
       if (count % 2 === 0) {
@@ -151,6 +211,12 @@ $(document).ready(function() {
 
   function playSound(number) {
     var x = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound'+number+'.mp3')
+    x.play()
+  }
+
+  function playSoundError() {
+    var x = new Audio('./sounds/hum.mp3')
+    x.volume = 0.03
     x.play()
   }
 
