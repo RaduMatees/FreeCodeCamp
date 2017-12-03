@@ -3,7 +3,6 @@ $(document).ready(function() {
   var offOnStatus = false
   var startStatus = false
   var strict = false
-  var counter = 1
   var checkIfRight = 0 // human variable, for repeating what simon said
   var repeat // simon repeating interval
   var beeper
@@ -57,7 +56,6 @@ $(document).ready(function() {
         beepingCounter(function() {
           $('#counter').html('01')
           simonMoves = []
-          counter = 1
           checkIfRight = 0
           simonPlays()
         })
@@ -77,7 +75,6 @@ $(document).ready(function() {
         startStatus = false
         strict = false
         simonMoves = []
-        counter = 1
         checkIfRight = 0
         clearInterval(repeat)
         clearInterval(beeper)
@@ -160,12 +157,16 @@ $(document).ready(function() {
             $('#counter').html('01')
             checkIfRight = 0
             simonMoves = []
-            counter = 1
             simonPlays()
           })
         } else {
+          var currentCount = $('#counter').html()
+          checkIfRight = 0
           beepingCounter(function() {
-            simonRepeat() // ??????
+            $('#counter').html(currentCount)
+            simonRepeat(function() {
+              $('.colors').css('pointer-events', 'auto')
+            })
           })
         }
       }
@@ -181,6 +182,7 @@ $(document).ready(function() {
   }
 
   function beepingCounter(callback) {
+    $('.colors').css('pointer-events', 'none')
     $('#counter').html('!!')
     var count = 0
     beeper = setInterval(function() {
