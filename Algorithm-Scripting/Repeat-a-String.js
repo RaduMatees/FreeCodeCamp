@@ -15,4 +15,9 @@ function repeatStringNumTimes(str, num) {
   }
 }
 
-repeatStringNumTimes("abc", 3);
+repeatStringNumTimes("abc", 3);   // "abcabcabc"
+repeatStringNumTimes("*", 3);   // "***"
+repeatStringNumTimes("abc", 4);   // "abcabcabcabc"
+repeatStringNumTimes("abc", 1);   // "abc"
+repeatStringNumTimes("*", 8);   // "********"
+repeatStringNumTimes("abc", -2)   // ""
