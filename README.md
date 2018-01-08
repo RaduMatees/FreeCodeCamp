@@ -22,3 +22,5 @@ it's structured into two parts, the algorithms challenges and the projects.
 The skills which I have learned and exercised are **HTML**, **CSS**, **JavaScript**,
 **jQuery** and **Bootstrap**. To earn the certification, I built **10 front end projects**
 and implemented many **JavaScript algorithms**.
+
+![shot-20180108-21345-109hzx3](https://user-images.githubusercontent.com/25900097/34672735-47375aa2-f488-11e7-8930-af69ca690990.jpeg)
