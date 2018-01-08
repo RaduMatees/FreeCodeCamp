@@ -2,6 +2,7 @@ Tribute Page
 ===
 
 FreeCodeCamp Challenge (https://www.freecodecamp.org/challenges/build-a-tribute-page)
+
 ---
 
 View in Browser:
